@@ -117,115 +117,12 @@ favoritesTable.addUserCallback = (data) => {
 
 favoritesTable.removeUserCallback = (id) => {
   ApiConnector.removeUserFromFavorites(id, response => {
-    
+
     reloadFavoritesAndUsersList(response);
 
     moneyManager.setMessage(response.success, response.success ? `Пользователь с id: ${id} успешно удален` : response.error);
   });
 };
-
-
-
-
-
-/*
-moneyManager.addMoneyCallback = (data) => {
-  ApiConnector.addMoney(data, response => {
-
-    if (response.success) {
-      ProfileWidget.showProfile(response.data);
-    };//пополнение и вывод профиля
-
-    moneyManager.setMessage(response.success, response.success ? "Пополнение баланса произведено успешно" : response.error);
-    //если первый аргумент true, то берем сообщение из второго аргумента, а но будет определяться через тернартный оператор
-  });
-};
-
-// 2. конвертирование валюты
-
-moneyManager.conversionMoneyCallback = (data) => {
-  ApiConnector.convertMoney(data, response => {
-
-    if (response.success) {
-      ProfileWidget.showProfile(response.data);
-    };//конвертирование и вывод профиля
-  
-    moneyManager.setMessage(response.success, response.success ? "Конвертирование валюты произведено успешно" : response.error);
-  });
-};
-
-// 3. перевод валюты
-
-moneyManager.sendMoneyCallback = (data) => {
-  ApiConnector.transferMoney(data, response => {
-
-    if (response.success) {
-      ProfileWidget.showProfile(response.data);
-    };//перевод и вывод профиля
-  
-    moneyManager.setMessage(response.success, response.success ? "Перевод валюты произведен успешно" : response.error);
-  });
-
-}
-*/
-
-/*
-ApiConnector.getFavorites(response => {
-
-  if (response.success) {
-
-    favoritesTable.clearTable();
-
-    favoritesTable.fillTable(response.data);
-
-    moneyManager.updateUsersList(response.data);
-  };
-});
-
-favoritesTable.addUserCallback = (data) => {
-
-  ApiConnector.addUserToFavorites(data, response => {
-
-    if (response.success) {
-
-      favoritesTable.clearTable();
-  
-      favoritesTable.fillTable(response.data);
-  
-      moneyManager.updateUsersList(response.data);
-    };
-
-    moneyManager.setMessage(response.success, response.success ? `Пользователь с именем: ${data.name} и id: ${data.id} успешно добавлен` : response.error);
-  });
-};
-
-//удаление пользователя из избранного
-
-favoritesTable.removeUserCallback = (id) => {
-
-  ApiConnector.removeUserFromFavorites(id, response => {
-    //console.log(response);
-
-    if (response.success) {
-
-      favoritesTable.clearTable();
-  
-      favoritesTable.fillTable(response.data);
-  
-      moneyManager.updateUsersList(response.data);
-    };
-
-    moneyManager.setMessage(response.success, response.success ? `Пользователь с id: ${id} успешно удален` : response.error);
-  });
-
-};
-
-*/
-
-
-
-
-
 
 
 
